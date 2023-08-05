@@ -1,0 +1,8 @@
+{
+    
+        "required":"This field cannot be empty",
+        "minLength": "The minimum number of characters is",
+        "maxLength":"The maximum number of characters is"
+
+    
+}

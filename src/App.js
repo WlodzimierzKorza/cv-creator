@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Grid } from "@mui/material";
+import Header from "./components/Header";
+import Steps from "./components/Steps/Steps";
+import { Route, Routes } from "react-router";
+import HeaderForm from "./Forms/HeaderForm";
+import ExperienceForm from "./Forms/ExperienceForm";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid container>
+      <Grid item xl={12} xs={12}>
+        <Header />
+      </Grid>
+      <Grid item xl={2}>
+        <Steps />
+      </Grid>
+      <Grid item xl={6} padding={2}>
+        <Routes>
+          <Route index path="/" element={<HeaderForm />} />
+          <Route path="experience" element={<ExperienceForm />} />
+        </Routes>
+      </Grid>
+      <Grid item xl={4}>
+        Prevew
+      </Grid>
+    </Grid>
   );
-}
+};
 
 export default App;
