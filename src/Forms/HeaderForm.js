@@ -11,8 +11,12 @@ import {
 import { Controller, useForm } from "react-hook-form";
 import err from "../utils/errors.json";
 import countries from "../utils/countries.json";
+import { useStore } from "../store";
+import { useNavigate } from "react-router-dom";
 
 const HeaderForm = () => {
+  const updateState = useStore((state) => state.updateState);
+  const navigate = useNavigate();
   const {
     control,
     handleSubmit,
@@ -29,7 +33,10 @@ const HeaderForm = () => {
     },
   });
 
-  const onSubmit = (data) => console.log("show data", data);
+  const onSubmit = (data) => {
+    updateState(data);
+    navigate("/experience");
+  };
   return (
     <Card>
       <CardHeader
@@ -260,7 +267,7 @@ const HeaderForm = () => {
         </CardContent>
         <CardActions>
           <Button fullWidth variant="outlined" type="submit">
-            Send
+            Next step
           </Button>
         </CardActions>
       </form>

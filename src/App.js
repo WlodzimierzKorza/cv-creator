@@ -4,6 +4,7 @@ import Steps from "./components/Steps/Steps";
 import { Route, Routes } from "react-router";
 import HeaderForm from "./Forms/HeaderForm";
 import ExperienceForm from "./Forms/ExperienceForm";
+import EducationForm from "./Forms/EducationForm";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           <Route index path="/" element={<HeaderForm />} />
           <Route path="experience" element={<ExperienceForm />} />
+          <Route path="education" element={<EducationForm />} />
         </Routes>
       </Grid>
       <Grid item xl={4}>

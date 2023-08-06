@@ -11,7 +11,10 @@ const Steps = () => {
       <Link to="/experience">
         <SingleStep primary="Experience" count={2} />
       </Link>
-      <SingleStep primary="Education" count={3} />
+      <Link to="/education">
+        <SingleStep primary="Education" count={3} />
+      </Link>
+
       <SingleStep primary="Skills" count={4} />
       <SingleStep primary="Summary" count={5} />
       <SingleStep primary="Finalise" count={6} />
