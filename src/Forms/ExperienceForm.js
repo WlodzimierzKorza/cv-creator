@@ -21,8 +21,10 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const ExperienceForm = () => {
-  const [jobs, setJobs] = useState([]);
+  const stateJobs = useStore((state) => state.jobs);
+  const [jobs, setJobs] = useState(stateJobs || []);
   const today = dayjs();
+
   const updateJobs = useStore((state) => state.updateJobs);
   const navigate = useNavigate();
   const {
@@ -180,9 +182,9 @@ const ExperienceForm = () => {
           </Grid>
           <List>
             {jobs.length > 0 &&
-              jobs.map((job) => {
+              jobs.map((job, index) => {
                 return (
-                  <ListItem>
+                  <ListItem key={index}>
                     {dayjs(job.startDate).format("MM/DD/YYYY")} -{" "}
                     {dayjs(job.endDate).format("MM/DD/YYYY")} {job.jobTitle} (
                     {job.employer})

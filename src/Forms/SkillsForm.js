@@ -20,7 +20,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const SkillsForm = () => {
-  const [skills, setEducation] = useState([]);
+  const stateSkills = useStore((state) => state.skills);
+  const [skills, setEducation] = useState(stateSkills || []);
   const updateSkills = useStore((state) => state.updateSkills);
   const navigate = useNavigate();
   const {

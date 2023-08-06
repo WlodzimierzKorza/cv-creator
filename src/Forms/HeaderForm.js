@@ -14,7 +14,8 @@ import countries from "../utils/countries.json";
 import { useStore } from "../store";
 import { useNavigate } from "react-router-dom";
 
-const HeaderForm = () => {
+const HeaderForm = ({ data }) => {
+  console.log(data);
   const updateState = useStore((state) => state.updateState);
   const navigate = useNavigate();
   const {
@@ -23,13 +24,13 @@ const HeaderForm = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      firstName: "",
-      surname: "",
-      city: "",
-      country: "",
-      postCode: "",
-      phone: "",
-      email: "",
+      firstName: data.firstName || "",
+      surname: data.surname || "",
+      city: data.city || "",
+      country: data.country || "",
+      postCode: data.postCode || "",
+      phone: data.phone || "",
+      email: data.email || "",
     },
   });
 
@@ -245,7 +246,7 @@ const HeaderForm = () => {
                     <TextField
                       name={field.name}
                       onChange={field.onChange}
-                      valye={field.value}
+                      value={field.value}
                       error={errors.email ? true : false}
                       helperText={
                         errors.email

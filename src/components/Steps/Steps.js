@@ -17,9 +17,9 @@ const Steps = () => {
       <Link to="/skills">
         <SingleStep primary="Skills" count={4} />
       </Link>
-
-      <SingleStep primary="Summary" count={5} />
-      <SingleStep primary="Finalise" count={6} />
+      <Link to="/summary">
+        <SingleStep primary="Summary" count={5} />
+      </Link>
     </List>
   );
 };

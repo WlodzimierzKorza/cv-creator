@@ -17,7 +17,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const EducationForm = () => {
-  const [education, setEducation] = useState([]);
+  const educationState = useStore((state) => state.education);
+  const [education, setEducation] = useState(educationState || []);
   const updateEducation = useStore((state) => state.updateEducation);
   const navigate = useNavigate();
   const {
