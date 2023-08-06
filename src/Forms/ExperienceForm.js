@@ -22,8 +22,6 @@ import { useEffect, useState } from "react";
 
 const ExperienceForm = () => {
   const [jobs, setJobs] = useState([]);
-  const store = useStore((state) => state);
-  console.log(store);
   const today = dayjs();
   const updateJobs = useStore((state) => state.updateJobs);
   const navigate = useNavigate();
@@ -43,11 +41,12 @@ const ExperienceForm = () => {
 
   useEffect(() => {
     updateJobs(jobs);
-  }, [jobs]);
+  }, [updateJobs, jobs]);
 
   const onSubmit = (data) => {
     setJobs([...jobs, data]);
   };
+
   return (
     <Card>
       <CardHeader
