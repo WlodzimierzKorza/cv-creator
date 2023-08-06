@@ -35,9 +35,6 @@ const App = () => {
           <Route path="summary" element={<Summary summary={store} />} />
         </Routes>
       </Grid>
-      <Grid item xl={4}>
-        Prevew
-      </Grid>
     </Grid>
   );
 };

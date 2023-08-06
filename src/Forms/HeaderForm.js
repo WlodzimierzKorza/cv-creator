@@ -47,12 +47,7 @@ const HeaderForm = ({ data }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <CardContent>
           <Grid container spacing={2} padding={2}>
-            <Grid item sm={3}>
-              <Button fullWidth variant="outlined" type="button">
-                Upload image
-              </Button>
-            </Grid>
-            <Grid item sm={9}>
+            <Grid item sm={12}>
               <Grid container spacing={1}>
                 <Grid item xs={12} sm={6}>
                   <Controller
