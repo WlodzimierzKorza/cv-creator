@@ -16,9 +16,8 @@ import { useStore } from "../store";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const EducationForm = () => {
-  const educationState = useStore((state) => state.education);
-  const [education, setEducation] = useState(educationState || []);
+const EducationForm = ({ educations }) => {
+  const [education, setEducation] = useState(educations || []);
   const updateEducation = useStore((state) => state.updateEducation);
   const navigate = useNavigate();
   const {
@@ -171,9 +170,9 @@ const EducationForm = () => {
           </Grid>
           <List>
             {education.length > 0 &&
-              education.map((e) => {
+              education.map((e, index) => {
                 return (
-                  <ListItem>
+                  <ListItem key={index}>
                     {e.year} - {e.institution} /{e.fieldOfStudy} (
                     {e.qualification})
                   </ListItem>

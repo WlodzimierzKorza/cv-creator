@@ -19,9 +19,8 @@ import { useStore } from "../store";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const SkillsForm = () => {
-  const stateSkills = useStore((state) => state.skills);
-  const [skills, setEducation] = useState(stateSkills || []);
+const SkillsForm = ({ skill }) => {
+  const [skills, setEducation] = useState(skill || []);
   const updateSkills = useStore((state) => state.updateSkills);
   const navigate = useNavigate();
   const {
@@ -34,8 +33,6 @@ const SkillsForm = () => {
       level: "",
     },
   });
-
-  console.log(errors);
 
   useEffect(() => {
     updateSkills(skills);
@@ -121,9 +118,9 @@ const SkillsForm = () => {
           </Grid>
           <List>
             {skills.length > 0 &&
-              skills.map((e) => {
+              skills.map((e, index) => {
                 return (
-                  <ListItem>
+                  <ListItem key={index}>
                     {e.skill} - {e.level}
                   </ListItem>
                 );

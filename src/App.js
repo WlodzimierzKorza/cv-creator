@@ -11,7 +11,7 @@ import Summary from "./Forms/Summary";
 
 const App = () => {
   const store = useStore((state) => state);
-  // console.log(store);
+
   return (
     <Grid container>
       <Grid item xl={12} xs={12}>
@@ -25,13 +25,13 @@ const App = () => {
           <Route index path="/" element={<HeaderForm data={store.data} />} />
           <Route
             path="experience"
-            element={<ExperienceForm experience={store.experience} />}
+            element={<ExperienceForm experience={store.jobs} />}
           />
           <Route
             path="education"
-            element={<EducationForm education={store.education} />}
+            element={<EducationForm educations={store.education} />}
           />
-          <Route path="skills" element={<SkillsForm skills={store.skills} />} />
+          <Route path="skills" element={<SkillsForm skill={store.skills} />} />
           <Route path="summary" element={<Summary summary={store} />} />
         </Routes>
       </Grid>

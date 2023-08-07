@@ -10,7 +10,7 @@ import dayjs from "dayjs";
 
 const Summary = ({ summary }) => {
   const { data, education, jobs, skills } = summary;
-  console.log(education);
+
   return (
     <Card>
       <CardHeader></CardHeader>
@@ -29,9 +29,9 @@ const Summary = ({ summary }) => {
         <Typography variant="h4">Education</Typography>
         <List>
           {education.length > 0 &&
-            education.map((e) => {
+            education.map((e, index) => {
               return (
-                <ListItem>
+                <ListItem key={index}>
                   {e.year} - {e.institution}({e.fieldOfStudy} )/{" "}
                   {e.qualification}
                 </ListItem>
@@ -42,9 +42,9 @@ const Summary = ({ summary }) => {
         <Typography variant="h4">Experience</Typography>
         <List>
           {jobs.length > 0 &&
-            jobs.map((e) => {
+            jobs.map((e, index) => {
               return (
-                <ListItem>
+                <ListItem key={index}>
                   {dayjs(e.startDate).format("MM/YY")}-
                   {dayjs(e.endDate).format("MM/YY")} {e.jobTitle} ({e.employer})
                 </ListItem>
@@ -55,9 +55,9 @@ const Summary = ({ summary }) => {
         <Typography variant="h4">Skills</Typography>
         <List>
           {skills.length > 0 &&
-            skills.map((e) => {
+            skills.map((e, index) => {
               return (
-                <ListItem>
+                <ListItem key={index}>
                   {e.skill} - {e.level}
                 </ListItem>
               );

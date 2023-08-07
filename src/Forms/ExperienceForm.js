@@ -20,9 +20,8 @@ import { useStore } from "../store";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const ExperienceForm = () => {
-  const stateJobs = useStore((state) => state.jobs);
-  const [jobs, setJobs] = useState(stateJobs || []);
+const ExperienceForm = ({ experience }) => {
+  const [jobs, setJobs] = useState(experience || []);
   const today = dayjs();
 
   const updateJobs = useStore((state) => state.updateJobs);

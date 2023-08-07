@@ -15,7 +15,6 @@ import { useStore } from "../store";
 import { useNavigate } from "react-router-dom";
 
 const HeaderForm = ({ data }) => {
-  console.log(data);
   const updateState = useStore((state) => state.updateState);
   const navigate = useNavigate();
   const {
