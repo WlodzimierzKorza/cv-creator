@@ -56,157 +56,159 @@ const ExperienceForm = ({ experience }) => {
       />
       <form onSubmit={handleSubmit(onSubmit)}>
         <CardContent>
-          <Grid container spacing={2} padding={2}>
-            <Grid container spacing={1}>
-              <Grid item xs={12} sm={6}>
-                <Controller
-                  name="jobTitle"
-                  control={control}
-                  rules={{ required: true, minLength: 3 }}
-                  render={({ field }) => {
-                    return (
-                      <>
-                        <TextField
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <Controller
+                name="jobTitle"
+                control={control}
+                rules={{ required: true, minLength: 3 }}
+                render={({ field }) => {
+                  return (
+                    <>
+                      <TextField
+                        name={field.name}
+                        label="Job title"
+                        onChange={field.onChange}
+                        variant="outlined"
+                        value={field.value}
+                        fullWidth
+                        error={errors.jobTitle ? true : false}
+                        helperText={
+                          errors.jobTitle
+                            ? (errors.jobTitle.type === "minLength" &&
+                                `${err.minLength} 3`) ||
+                              (errors.jobTitle.type === "required" &&
+                                err.required)
+                            : null
+                        }
+                      />
+                    </>
+                  );
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Controller
+                name="employer"
+                rules={{ required: true, minLength: 3 }}
+                control={control}
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      name={field.name}
+                      label="Employer"
+                      variant="outlined"
+                      value={field.value}
+                      onChange={field.onChange}
+                      error={errors.employer ? true : false}
+                      helperText={
+                        errors.employer
+                          ? (errors.employer.type === "required" &&
+                              err.required) ||
+                            (errors.employer.type === "minLength" &&
+                              `${err.minLength} 3`)
+                          : null
+                      }
+                      fullWidth
+                    />
+                  );
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                }}
+                name="startDate"
+                render={({ field }) => {
+                  return (
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DemoContainer components={["DateField"]}>
+                        <DateField
+                          label="Start date"
                           name={field.name}
-                          label="Job title"
-                          onChange={field.onChange}
-                          variant="outlined"
                           value={field.value}
+                          onChange={field.onChange}
+                          disableFuture
                           fullWidth
-                          error={errors.jobTitle ? true : false}
+                          error={errors.startDate ? true : false}
                           helperText={
-                            errors.jobTitle
-                              ? (errors.jobTitle.type === "minLength" &&
-                                  `${err.minLength} 3`) ||
-                                (errors.jobTitle.type === "required" &&
-                                  err.required)
+                            errors.startDate &&
+                            errors.startDate.type === "required"
+                              ? err.required
                               : null
                           }
                         />
-                      </>
-                    );
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Controller
-                  name="employer"
-                  rules={{ required: true, minLength: 3 }}
-                  control={control}
-                  render={({ field }) => {
+                      </DemoContainer>
+                    </LocalizationProvider>
+                  );
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Controller
+                control={control}
+                name="endDate"
+                render={({ field }) => {
+                  return (
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DemoContainer components={["DateField"]}>
+                        <DateField
+                          disableFuture
+                          label="End date"
+                          name={field.name}
+                          value={field.value}
+                          onChange={field.onChange}
+                          error={errors.endDateDate ? true : false}
+                          helperText={
+                            errors.endDateDate &&
+                            errors.endDateDate.type === "required"
+                              ? err.required
+                              : null
+                          }
+                          fullWidth
+                        />
+                      </DemoContainer>
+                    </LocalizationProvider>
+                  );
+                }}
+              />
+            </Grid>
+            <Grid>
+              <List>
+                {jobs.length > 0 &&
+                  jobs.map((job, index) => {
                     return (
-                      <TextField
-                        name={field.name}
-                        label="Employer"
-                        variant="outlined"
-                        value={field.value}
-                        onChange={field.onChange}
-                        error={errors.employer ? true : false}
-                        helperText={
-                          errors.employer
-                            ? (errors.employer.type === "required" &&
-                                err.required) ||
-                              (errors.employer.type === "minLength" &&
-                                `${err.minLength} 3`)
-                            : null
-                        }
-                        fullWidth
-                      />
+                      <ListItem key={index}>
+                        {dayjs(job.startDate).format("MM/DD/YYYY")} -{" "}
+                        {dayjs(job.endDate).format("MM/DD/YYYY")} {job.jobTitle}{" "}
+                        ({job.employer})
+                      </ListItem>
                     );
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Controller
-                  control={control}
-                  rules={{
-                    required: true,
-                  }}
-                  name="startDate"
-                  render={({ field }) => {
-                    return (
-                      <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DemoContainer components={["DateField"]}>
-                          <DateField
-                            label="Start date"
-                            name={field.name}
-                            value={field.value}
-                            onChange={field.onChange}
-                            disableFuture
-                            fullWidth
-                            error={errors.startDate ? true : false}
-                            helperText={
-                              errors.startDate &&
-                              errors.startDate.type === "required"
-                                ? err.required
-                                : null
-                            }
-                          />
-                        </DemoContainer>
-                      </LocalizationProvider>
-                    );
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Controller
-                  control={control}
-                  name="endDate"
-                  render={({ field }) => {
-                    return (
-                      <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DemoContainer components={["DateField"]}>
-                          <DateField
-                            disableFuture
-                            label="End date"
-                            name={field.name}
-                            value={field.value}
-                            onChange={field.onChange}
-                            error={errors.endDateDate ? true : false}
-                            helperText={
-                              errors.endDateDate &&
-                              errors.endDateDate.type === "required"
-                                ? err.required
-                                : null
-                            }
-                            fullWidth
-                          />
-                        </DemoContainer>
-                      </LocalizationProvider>
-                    );
-                  }}
-                />
-              </Grid>
+                  })}
+              </List>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Button fullWidth variant="outlined" type="submit">
+                Save and next job
+              </Button>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Button
+                fullWidth
+                variant="outlined"
+                type="button"
+                onClick={() => {
+                  navigate("/education");
+                }}
+              >
+                Next step
+              </Button>
             </Grid>
           </Grid>
-          <List>
-            {jobs.length > 0 &&
-              jobs.map((job, index) => {
-                return (
-                  <ListItem key={index}>
-                    {dayjs(job.startDate).format("MM/DD/YYYY")} -{" "}
-                    {dayjs(job.endDate).format("MM/DD/YYYY")} {job.jobTitle} (
-                    {job.employer})
-                  </ListItem>
-                );
-              })}
-          </List>
         </CardContent>
-        <CardActions>
-          <Button fullWidth variant="outlined" type="submit">
-            Save and next job
-          </Button>
-          <Button
-            fullWidth
-            variant="outlined"
-            type="button"
-            onClick={() => {
-              navigate("/education");
-            }}
-          >
-            Next step
-          </Button>
-        </CardActions>
       </form>
     </Card>
   );

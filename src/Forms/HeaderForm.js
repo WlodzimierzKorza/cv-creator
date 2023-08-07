@@ -45,97 +45,91 @@ const HeaderForm = ({ data }) => {
       />
       <form onSubmit={handleSubmit(onSubmit)}>
         <CardContent>
-          <Grid container spacing={2} padding={2}>
-            <Grid item sm={12}>
-              <Grid container spacing={1}>
-                <Grid item xs={12} sm={6}>
-                  <Controller
-                    name="firstName"
-                    control={control}
-                    rules={{ required: true, minLength: 3 }}
-                    render={({ field }) => {
-                      return (
-                        <>
-                          <TextField
-                            name={field.name}
-                            label="First Name"
-                            onChange={field.onChange}
-                            variant="outlined"
-                            value={field.value}
-                            fullWidth
-                            error={errors.firstName ? true : false}
-                            helperText={
-                              errors.firstName
-                                ? (errors.firstName.type === "minLength" &&
-                                    `${err.minLength} 3`) ||
-                                  (errors.firstName.type === "required" &&
-                                    err.required)
-                                : null
-                            }
-                          />
-                        </>
-                      );
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Controller
-                    name="surname"
-                    rules={{ required: true, minLength: 3 }}
-                    control={control}
-                    render={({ field }) => {
-                      return (
-                        <TextField
-                          name={field.name}
-                          label="Surname"
-                          variant="outlined"
-                          value={field.value}
-                          onChange={field.onChange}
-                          error={errors.surname ? true : false}
-                          helperText={
-                            errors.surname
-                              ? (errors.surname.type === "required" &&
-                                  err.required) ||
-                                (errors.surname.type === "minLength" &&
-                                  `${err.minLength} 3`)
-                              : null
-                          }
-                          fullWidth
-                        />
-                      );
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12}>
-                  <Controller
-                    control={control}
-                    rules={{ required: true, minLength: 5 }}
-                    name="city"
-                    render={({ field }) => (
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <Controller
+                name="firstName"
+                control={control}
+                rules={{ required: true, minLength: 3 }}
+                render={({ field }) => {
+                  return (
+                    <>
                       <TextField
                         name={field.name}
+                        label="First Name"
                         onChange={field.onChange}
-                        error={errors.city ? true : false}
-                        label="City"
                         variant="outlined"
                         value={field.value}
+                        fullWidth
+                        error={errors.firstName ? true : false}
                         helperText={
-                          errors.city
-                            ? (errors.city.type === "required" &&
-                                err.required) ||
-                              (errors.city.type === "minLength" &&
-                                `${err.minLength} 5`)
+                          errors.firstName
+                            ? (errors.firstName.type === "minLength" &&
+                                `${err.minLength} 3`) ||
+                              (errors.firstName.type === "required" &&
+                                err.required)
                             : null
                         }
-                        fullWidth
                       />
-                    )}
-                  />
-                </Grid>
-              </Grid>
+                    </>
+                  );
+                }}
+              />
             </Grid>
-          </Grid>
-          <Grid container spacing={2} padding={2}>
+            <Grid item xs={12} sm={6}>
+              <Controller
+                name="surname"
+                rules={{ required: true, minLength: 3 }}
+                control={control}
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      name={field.name}
+                      label="Surname"
+                      variant="outlined"
+                      value={field.value}
+                      onChange={field.onChange}
+                      error={errors.surname ? true : false}
+                      helperText={
+                        errors.surname
+                          ? (errors.surname.type === "required" &&
+                              err.required) ||
+                            (errors.surname.type === "minLength" &&
+                              `${err.minLength} 3`)
+                          : null
+                      }
+                      fullWidth
+                    />
+                  );
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={12}>
+              <Controller
+                control={control}
+                rules={{ required: true, minLength: 5 }}
+                name="city"
+                render={({ field }) => (
+                  <TextField
+                    name={field.name}
+                    onChange={field.onChange}
+                    error={errors.city ? true : false}
+                    label="City"
+                    variant="outlined"
+                    value={field.value}
+                    helperText={
+                      errors.city
+                        ? (errors.city.type === "required" && err.required) ||
+                          (errors.city.type === "minLength" &&
+                            `${err.minLength} 5`)
+                        : null
+                    }
+                    fullWidth
+                  />
+                )}
+              />
+            </Grid>
+
             <Grid item xs={12} sm={6}>
               <Controller
                 control={control}
@@ -258,13 +252,13 @@ const HeaderForm = ({ data }) => {
                 }}
               />
             </Grid>
+            <Grid item xs={12} sm={12}>
+              <Button fullWidth variant="outlined" type="submit">
+                Next step
+              </Button>
+            </Grid>
           </Grid>
         </CardContent>
-        <CardActions>
-          <Button fullWidth variant="outlined" type="submit">
-            Next step
-          </Button>
-        </CardActions>
       </form>
     </Card>
   );
