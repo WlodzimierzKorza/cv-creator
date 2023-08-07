@@ -1,6 +1,5 @@
-import { Box, List, Step, StepLabel, Stepper } from "@mui/material";
-import SingleStep from "./SingleStep";
-import { Link } from "react-router-dom";
+import { Box, Step, StepLabel, Stepper } from "@mui/material";
+import { Link, useLocation } from "react-router-dom";
 
 const Steps = () => {
   const steps = [
@@ -25,12 +24,18 @@ const Steps = () => {
       path: "/summary",
     },
   ];
+
+  const location = useLocation();
+
   return (
     <Box margin={4}>
       <Stepper alternativeLabel>
         {steps.map((step) => {
           return (
-            <Step key={step.title} active={true}>
+            <Step
+              key={step.title}
+              active={location.pathname === step.path ? true : false}
+            >
               <Link to={step.path}>
                 <StepLabel>{step.title}</StepLabel>
               </Link>

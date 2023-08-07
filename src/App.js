@@ -1,6 +1,5 @@
 import { Container, CssBaseline, Grid, ThemeProvider } from "@mui/material";
 import Header from "./components/Header";
-import Steps from "./components/Steps/Steps";
 import { Route, Routes } from "react-router";
 import HeaderForm from "./Forms/HeaderForm";
 import ExperienceForm from "./Forms/ExperienceForm";

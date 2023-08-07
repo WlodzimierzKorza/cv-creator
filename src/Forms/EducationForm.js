@@ -49,152 +49,153 @@ const EducationForm = ({ educations }) => {
       />
       <form onSubmit={handleSubmit(onSubmit)}>
         <CardContent>
-          <Grid container spacing={2} padding={2}>
-            <Grid container spacing={1}>
-              <Grid item xs={12} sm={6}>
-                <Controller
-                  name="institution"
-                  control={control}
-                  rules={{ required: true, minLength: 3 }}
-                  render={({ field }) => {
-                    return (
-                      <>
-                        <TextField
-                          name={field.name}
-                          label="Institution"
-                          onChange={field.onChange}
-                          variant="outlined"
-                          value={field.value}
-                          fullWidth
-                          error={errors.institution ? true : false}
-                          helperText={
-                            errors.institution
-                              ? (errors.institution.type === "minLength" &&
-                                  `${err.minLength} 3`) ||
-                                (errors.institution.type === "required" &&
-                                  err.required)
-                              : null
-                          }
-                        />
-                      </>
-                    );
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Controller
-                  name="fieldOfStudy"
-                  rules={{ required: true, minLength: 3 }}
-                  control={control}
-                  render={({ field }) => {
-                    return (
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <Controller
+                name="institution"
+                control={control}
+                rules={{ required: true, minLength: 3 }}
+                render={({ field }) => {
+                  return (
+                    <>
                       <TextField
                         name={field.name}
-                        label="Field of study"
+                        label="Institution"
+                        onChange={field.onChange}
                         variant="outlined"
                         value={field.value}
-                        onChange={field.onChange}
-                        error={errors.fieldOfStudy ? true : false}
+                        fullWidth
+                        error={errors.institution ? true : false}
                         helperText={
-                          errors.fieldOfStudy
-                            ? (errors.fieldOfStudy.type === "required" &&
-                                err.required) ||
-                              (errors.fieldOfStudy.type === "minLength" &&
-                                `${err.minLength} 3`)
+                          errors.institution
+                            ? (errors.institution.type === "minLength" &&
+                                `${err.minLength} 3`) ||
+                              (errors.institution.type === "required" &&
+                                err.required)
                             : null
                         }
-                        fullWidth
                       />
-                    );
-                  }}
-                />
-              </Grid>
+                    </>
+                  );
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Controller
+                name="fieldOfStudy"
+                rules={{ required: true, minLength: 3 }}
+                control={control}
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      name={field.name}
+                      label="Field of study"
+                      variant="outlined"
+                      value={field.value}
+                      onChange={field.onChange}
+                      error={errors.fieldOfStudy ? true : false}
+                      helperText={
+                        errors.fieldOfStudy
+                          ? (errors.fieldOfStudy.type === "required" &&
+                              err.required) ||
+                            (errors.fieldOfStudy.type === "minLength" &&
+                              `${err.minLength} 3`)
+                          : null
+                      }
+                      fullWidth
+                    />
+                  );
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Controller
+                name="qualification"
+                rules={{ required: true, minLength: 3 }}
+                control={control}
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      name={field.name}
+                      label="Qualification"
+                      variant="outlined"
+                      value={field.value}
+                      onChange={field.onChange}
+                      error={errors.qualification ? true : false}
+                      helperText={
+                        errors.qualification
+                          ? (errors.qualification.type === "required" &&
+                              err.required) ||
+                            (errors.qualification.type === "minLength" &&
+                              `${err.minLength} 3`)
+                          : null
+                      }
+                      fullWidth
+                    />
+                  );
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Controller
+                name="year"
+                rules={{ required: true, maxLength: 4 }}
+                control={control}
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      name={field.name}
+                      label="Year"
+                      variant="outlined"
+                      value={field.value}
+                      onChange={field.onChange}
+                      error={errors.year ? true : false}
+                      helperText={
+                        errors.year
+                          ? (errors.year.type === "required" && err.required) ||
+                            (errors.year.type === "minLength" &&
+                              `${err.maxLength} 4`)
+                          : null
+                      }
+                      fullWidth
+                    />
+                  );
+                }}
+              />
+            </Grid>
 
-              <Grid item xs={12} sm={6}>
-                <Controller
-                  name="qualification"
-                  rules={{ required: true, minLength: 3 }}
-                  control={control}
-                  render={({ field }) => {
+            <Grid>
+              <List>
+                {education.length > 0 &&
+                  education.map((e, index) => {
                     return (
-                      <TextField
-                        name={field.name}
-                        label="Qualification"
-                        variant="outlined"
-                        value={field.value}
-                        onChange={field.onChange}
-                        error={errors.qualification ? true : false}
-                        helperText={
-                          errors.qualification
-                            ? (errors.qualification.type === "required" &&
-                                err.required) ||
-                              (errors.qualification.type === "minLength" &&
-                                `${err.minLength} 3`)
-                            : null
-                        }
-                        fullWidth
-                      />
+                      <ListItem key={index}>
+                        {e.year} - {e.institution} /{e.fieldOfStudy} (
+                        {e.qualification})
+                      </ListItem>
                     );
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Controller
-                  name="year"
-                  rules={{ required: true, maxLength: 4 }}
-                  control={control}
-                  render={({ field }) => {
-                    return (
-                      <TextField
-                        name={field.name}
-                        label="Year"
-                        variant="outlined"
-                        value={field.value}
-                        onChange={field.onChange}
-                        error={errors.year ? true : false}
-                        helperText={
-                          errors.year
-                            ? (errors.year.type === "required" &&
-                                err.required) ||
-                              (errors.year.type === "minLength" &&
-                                `${err.maxLength} 4`)
-                            : null
-                        }
-                        fullWidth
-                      />
-                    );
-                  }}
-                />
-              </Grid>
+                  })}
+              </List>
+            </Grid>
+            <Grid item sm={6}>
+              <Button fullWidth variant="outlined" type="submit">
+                Save and next step
+              </Button>
+            </Grid>
+            <Grid item sm={6}>
+              <Button
+                fullWidth
+                variant="outlined"
+                type="button"
+                onClick={() => {
+                  navigate("/skills");
+                }}
+              >
+                Next step
+              </Button>
             </Grid>
           </Grid>
-          <List>
-            {education.length > 0 &&
-              education.map((e, index) => {
-                return (
-                  <ListItem key={index}>
-                    {e.year} - {e.institution} /{e.fieldOfStudy} (
-                    {e.qualification})
-                  </ListItem>
-                );
-              })}
-          </List>
         </CardContent>
-        <CardActions>
-          <Button fullWidth variant="outlined" type="submit">
-            Save and next education
-          </Button>
-          <Button
-            fullWidth
-            variant="outlined"
-            type="button"
-            onClick={() => {
-              navigate("/skills");
-            }}
-          >
-            Next step
-          </Button>
-        </CardActions>
       </form>
     </Card>
   );

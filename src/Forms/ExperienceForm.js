@@ -1,7 +1,6 @@
 import {
   Button,
   Card,
-  CardActions,
   CardContent,
   CardHeader,
   Grid,
@@ -192,7 +191,7 @@ const ExperienceForm = ({ experience }) => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <Button fullWidth variant="outlined" type="submit">
-                Save and next job
+                Save and next step
               </Button>
             </Grid>
             <Grid item xs={12} sm={6}>
