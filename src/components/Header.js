@@ -1,5 +1,4 @@
 import { Toolbar, AppBar, Typography } from "@mui/material";
-import Steps from "./Steps/Steps";
 
 const Header = () => {
   return (

@@ -6,7 +6,6 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import Header from "./components/Header";
 import { Route, Routes } from "react-router";
 import HeaderForm from "./Forms/HeaderForm";
 import ExperienceForm from "./Forms/ExperienceForm";
@@ -24,9 +23,6 @@ const App = () => {
     <ThemeProvider theme={themes()}>
       <CssBaseline>
         <Grid container>
-          {/* <Grid item xl={12} xs={12}>
-            <Header />
-          </Grid> */}
           <Grid item xl={12} padding={2}>
             <Container>
               <Paper elevation={4} style={{ marginTop: "40px" }}>
