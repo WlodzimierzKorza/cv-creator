@@ -60,7 +60,7 @@ const Summary = () => {
                     Professional summary
                   </Typography>
                 </Grid>
-                <Grid item sm={9} sx={{ padding: "10px" }}>
+                <Grid item sm={9} sx={{ padding: "10px 0 10px 20px" }}>
                   <p>
                     Hardworking and passionate job seeker with strong
                     organizational skills eager to secure React Developer
@@ -91,7 +91,7 @@ const Summary = () => {
                   skills
                 </Typography>
               </Grid>
-              <Grid item sm={9} sx={{ padding: "10px" }}>
+              <Grid item sm={9} sx={{ padding: "10px 0 10px 20px" }}>
                 <ul>
                   <li>Application Development</li>
                   <li>UI/UX Critical Thinking</li>
@@ -127,7 +127,7 @@ const Summary = () => {
                   work history
                 </Typography>
               </Grid>
-              <Grid item sm={9} sx={{ padding: "10px" }}>
+              <Grid item sm={9} sx={{ padding: "10px 0 10px 20px" }}>
                 <h4>Infonet Projekt</h4>
                 <small>2022-2023</small>
                 <ul>
@@ -141,6 +141,12 @@ const Summary = () => {
                   <li>PHP</li>
                   <li>ASP.NET</li>
                 </ul>
+                Links:
+                <ul>
+                  <li>
+                    <a href="https://doc.oxari.com">https://doc.oxari.com</a>
+                  </li>
+                </ul>
                 <h4>Freelancer</h4>
                 <small>2010-2020</small>
                 <p>
@@ -148,9 +154,33 @@ const Summary = () => {
                   projects, mainly being responsible for frontend development. I
                   primarily worked with the React.js library.
                 </p>
+                Links:
+                <ul>
+                  <li>
+                    <a href="https://potrojniepozytywna.firebaseapp.com/">
+                      https://potrojniepozytywna.firebaseapp.com/
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://zaginamy.pl/">https://zaginamy.pl/</a>
+                  </li>
+                  <li>
+                    <a href="https://mainmerry-pavlova-b205fd.netlify.app">
+                      https://mainmerry-pavlova-b205fd.netlify.app
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://doc.oxari.com">https://doc.oxari.com</a>
+                  </li>
+                  <li>
+                    <a href="https://mastermind-81cf0.web.app">
+                      https://mastermind-81cf0.web.app
+                    </a>
+                  </li>
+                </ul>
               </Grid>
             </Grid>
-            <Grid container>
+            {/* <Grid container>
               <Grid
                 item
                 sm={3}
@@ -197,7 +227,7 @@ const Summary = () => {
                   </li>
                 </ul>
               </Grid>
-            </Grid>
+            </Grid> */}
             <Grid container>
               <Grid
                 item
@@ -214,14 +244,13 @@ const Summary = () => {
                   textAlign="right"
                   sx={{
                     textTransform: "uppercase",
-
                     wordWrap: "break-word",
                   }}
                 >
                   Languages
                 </Typography>
               </Grid>
-              <Grid item sm={9} sx={{ padding: "10px" }}>
+              <Grid item sm={9} sx={{ padding: "10px 0 10px 20px" }}>
                 <ul>
                   <li>Polish - Native language</li>
                   <li>English - Upper intermediate</li>
