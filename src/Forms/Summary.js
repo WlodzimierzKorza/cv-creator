@@ -9,7 +9,7 @@ const Summary = () => {
     <Container>
       <Grid container justifyContent="center">
         <Grid item sm={8}>
-          <Paper elevation={3} className="cv-container">
+          <Paper elevation={0} className="cv-container">
             <Grid container justifyItems="center">
               <Grid item justifyContent="center" sm={12}>
                 <Typography variant="h1" textAlign="center" color="primary">
@@ -37,54 +37,7 @@ const Summary = () => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid container>
-                <Grid
-                  item
-                  sm={3}
-                  padding={2}
-                  display="flex"
-                  justifyContent="flex-end"
-                  className="item-title"
-                >
-                  <Typography
-                    variant="h5"
-                    color="primary"
-                    fontStyle="revert-layer"
-                    textAlign="right"
-                    sx={{
-                      textTransform: "uppercase",
-                      wordWrap: "break-word",
-                    }}
-                  >
-                    websites, portfolios, profiles
-                  </Typography>
-                </Grid>
-                <Grid item sm={9} sx={{ padding: "10px" }}>
-                  <ul>
-                    <li>
-                      <a href="https://potrojniepozytywna.firebaseapp.com/">
-                        https://potrojniepozytywna.firebaseapp.com/
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://zaginamy.pl/">https://zaginamy.pl/</a>
-                    </li>
-                    <li>
-                      <a href="https://mainmerry-pavlova-b205fd.netlify.app">
-                        https://mainmerry-pavlova-b205fd.netlify.app
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://doc.oxari.com">https://doc.oxari.com</a>
-                    </li>
-                    <li>
-                      <a href="https://mastermind-81cf0.web.app">
-                        https://mastermind-81cf0.web.app
-                      </a>
-                    </li>
-                  </ul>
-                </Grid>
-              </Grid>
+
               <Grid container>
                 <Grid
                   item
@@ -132,7 +85,6 @@ const Summary = () => {
                   textAlign="right"
                   sx={{
                     textTransform: "uppercase",
-
                     wordWrap: "break-word",
                   }}
                 >
@@ -169,7 +121,6 @@ const Summary = () => {
                   textAlign="right"
                   sx={{
                     textTransform: "uppercase",
-
                     wordWrap: "break-word",
                   }}
                 >
@@ -197,6 +148,54 @@ const Summary = () => {
                   projects, mainly being responsible for frontend development. I
                   primarily worked with the React.js library.
                 </p>
+              </Grid>
+            </Grid>
+            <Grid container>
+              <Grid
+                item
+                sm={3}
+                padding={2}
+                display="flex"
+                justifyContent="flex-end"
+                className="item-title"
+              >
+                <Typography
+                  variant="h5"
+                  color="primary"
+                  fontStyle="revert-layer"
+                  textAlign="right"
+                  sx={{
+                    textTransform: "uppercase",
+                    wordWrap: "break-word",
+                  }}
+                >
+                  websites, portfolios, profiles
+                </Typography>
+              </Grid>
+              <Grid item sm={9} sx={{ padding: "10px" }}>
+                <ul>
+                  <li>
+                    <a href="https://potrojniepozytywna.firebaseapp.com/">
+                      https://potrojniepozytywna.firebaseapp.com/
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://zaginamy.pl/">https://zaginamy.pl/</a>
+                  </li>
+                  <li>
+                    <a href="https://mainmerry-pavlova-b205fd.netlify.app">
+                      https://mainmerry-pavlova-b205fd.netlify.app
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://doc.oxari.com">https://doc.oxari.com</a>
+                  </li>
+                  <li>
+                    <a href="https://mastermind-81cf0.web.app">
+                      https://mastermind-81cf0.web.app
+                    </a>
+                  </li>
+                </ul>
               </Grid>
             </Grid>
             <Grid container>
